@@ -1,3 +1,12 @@
+INSTALLATION AND RUNNING
+------------------------
+```
+git clone git@github.com:Tairesh/test-maer.git
+cd test-maer
+composer install
+yes yes | ./yii migrate
+./yii serve
+```
 
 CONFIGURATION
 -------------
