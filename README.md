@@ -18,7 +18,7 @@ Edit the file `config/db.php` with real data, for example:
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;dbname=postgres',
+    'dsn' => 'pgsql:host=localhost;dbname=test-maer',
     'username' => 'postgres',
     'password' => 'postgres',
     'charset' => 'utf8',
