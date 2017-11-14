@@ -27,7 +27,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return 'Posts';
     }
-
+    
     /**
      * @inheritdoc
      */
