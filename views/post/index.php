@@ -25,12 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'languageId',
-            'authorId',
-            'dateCreated',
+            'language.name',
+            'author.name',
+            'dateCreated:date',
             'title',
-            // 'text:ntext',
-            // 'likesCount',
+            'text:ntext',
+            'likesCount',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

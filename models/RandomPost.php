@@ -109,6 +109,9 @@ class RandomPost extends Post
         $this->title = $this->randomSentence(self::TITLE_WORDS_MIN, self::TITLE_WORDS_MAX, self::TITLE_WORDS_BY_LANG[$this->languageId]);
     }
     
+    /**
+     * Generates text of some sentences imploded with dots
+     */
     protected function generateText()
     {
         $data = self::TEXT_WORDS_BY_LANG[$this->languageId];
@@ -120,6 +123,13 @@ class RandomPost extends Post
         $this->text = implode('. ', $sentences).'.';
     }
     
+    /**
+     * generated random sentence with a UC first letter
+     * @param integer $minWords
+     * @param integer $maxWords
+     * @param array $data words to collect
+     * @return string
+     */
     protected function randomSentence(int $minWords, int $maxWords, array $data) : string
     {
         $wordsCount = mt_rand($minWords, $maxWords);
