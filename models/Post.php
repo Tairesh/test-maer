@@ -74,4 +74,9 @@ class Post extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Language::className(), ['id' => 'languageId']);
     }
+    
+    public static function countWithLikesLessThan($likes = 5000)
+    {
+        return self::find()->where(['<', 'likesCount', $likes])->count();
+    }
 }

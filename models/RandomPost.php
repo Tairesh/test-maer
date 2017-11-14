@@ -142,10 +142,19 @@ class RandomPost extends Post
         }
         return StringHelper::ucfirst(implode(' ', $words));
     }
-    
+
+    /**
+     * Generates dummy random likes count with probability 80% less than self::LIKES_MAX/2
+     */
     protected function generateLikes()
     {
-        $this->likesCount = mt_rand(self::LIKES_MIN, self::LIKES_MAX);
+        $dice = mt_rand(1, 10);
+        if ($dice <= 8) {
+            $value = mt_rand(self::LIKES_MIN, self::LIKES_MAX/2);
+        } else {
+            $value = mt_rand(self::LIKES_MAX/2, self::LIKES_MAX);
+        }
+        $this->likesCount = $value;
     }
     
 

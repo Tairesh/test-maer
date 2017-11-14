@@ -41,6 +41,7 @@ class PostController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'countLess5000' => Post::countWithLikesLessThan(5000),
         ]);
     }
 

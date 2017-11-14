@@ -20,8 +20,11 @@ class GeneratorController extends Controller
      */
     public function actionIndex($count = 10000)
     {
+//        RandomPost::deleteAll();
         $languages = Language::find()->select('id')->column();
         $authors = Author::find()->select('id')->column();
+        
+        $timeStart = microtime(true);
         
         $data = [];
         for ($i = 0; $i < $count; $i++) {
@@ -32,10 +35,15 @@ class GeneratorController extends Controller
             $data[] = $attributes;
         }
         
+        $timeGenerated = microtime(true);
+        echo "$count random posts generated at ".($timeGenerated-$timeStart).' sec.'.PHP_EOL;
+        
         $command = Yii::$app->db->createCommand();
         $command->batchInsert(RandomPost::tableName(), ['languageId', 'authorId', 'dateCreated', 'title', 'text', 'likesCount'], $data);
-        $command->execute();
+        $inserted = $command->execute();
         
+        $timeInserted = microtime(true);
+        echo "$inserted random posts saved at ".($timeInserted-$timeGenerated).' sec.'.PHP_EOL;
     }
     
 }

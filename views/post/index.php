@@ -6,6 +6,7 @@ use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $countLess5000 integer */
 
 $this->title = 'Posts';
 $this->params['breadcrumbs'][] = $this->title;
@@ -17,6 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Post', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <p>
+        Posts with less than 5000 likes: <?=$countLess5000?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
