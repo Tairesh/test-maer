@@ -35,7 +35,7 @@ class m171114_163828_insert_default_data extends Migration
      */
     public function safeDown()
     {
-        $this->truncateTable('Authors');
-        $this->truncateTable('Languages');
+        $this->execute('TRUNCATE TABLE "Authors" RESTART IDENTITY CASCADE');
+        $this->execute('TRUNCATE TABLE "Languages" RESTART IDENTITY CASCADE');
     }
 }
