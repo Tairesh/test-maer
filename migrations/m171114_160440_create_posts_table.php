@@ -36,8 +36,8 @@ class m171114_160440_create_posts_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('AuthorId', 'Authors');
-        $this->dropForeignKey('LanguageId', 'Languages');
+        $this->dropForeignKey('AuthorId', $this->table);
+        $this->dropForeignKey('LanguageId', $this->table);
         $this->dropIndex('LikesCount'.$this->table, $this->table);
         $this->dropIndex('Title'.$this->table, $this->table);
         $this->dropIndex('DateCreated'.$this->table, $this->table);
